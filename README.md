@@ -127,6 +127,18 @@ After running the notebook, these folders/files are generated:
 3. Review model metrics and generated visualizations.
 4. Import `powerbi_exports/*.csv` into Power BI.
 
+## Screenshots
+
+### 1) Project Overview
+![Project Overview](screenshots/overview.png)
+
+### 2) Model Results
+![Model Results](screenshots/model-results.png)
+
+### 3) Power BI Dashboard
+![Power BI Dashboard](screenshots/powerbi-dashboard.png)
+
+
 ## Repository Structure
 ```text
 .
