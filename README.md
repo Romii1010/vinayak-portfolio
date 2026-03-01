@@ -1,5 +1,8 @@
 ﻿# Flight Price Analysis, Machine Learning, and Power BI Dashboard
 
+Live Repository: https://github.com/Romii1010/vinayak-portfolio  
+Live HTML Dashboard: https://romii1010.github.io/vinayak-portfolio/dashboard/
+
 ## Project Overview
 This project analyzes flight pricing data, builds a machine learning model to predict ticket prices, performs hyperparameter tuning using `GridSearchCV`, and prepares Power BI-ready datasets for interactive reporting.
 
@@ -162,3 +165,6 @@ After running the notebook, these folders/files are generated:
 ## Author
 Vinayak Kesarkar  
 GitHub: https://github.com/Romii1010/vinayak-portfolio
+
+
+
