@@ -1,0 +1,35 @@
+﻿-- Table: powerbi_flights_cleaned
+-- Create these in Power BI: Modeling -> New measure
+
+Total Flights = COUNTROWS(powerbi_flights_cleaned)
+Avg Price = AVERAGE(powerbi_flights_cleaned[price])
+Median Price = MEDIAN(powerbi_flights_cleaned[price])
+Max Price = MAX(powerbi_flights_cleaned[price])
+Min Price = MIN(powerbi_flights_cleaned[price])
+Avg Duration Hr = AVERAGE(powerbi_flights_cleaned[duration_hours])
+Avg Stops = AVERAGE(powerbi_flights_cleaned[stops_num])
+
+Flights (Non-stop) = CALCULATE([Total Flights], powerbi_flights_cleaned[stops_num] = 0)
+Flights (1+ Stop) = CALCULATE([Total Flights], powerbi_flights_cleaned[stops_num] >= 1)
+Weekend Flights = CALCULATE([Total Flights], powerbi_flights_cleaned[is_weekend] = 1)
+Avg Price Weekend = CALCULATE([Avg Price], powerbi_flights_cleaned[is_weekend] = 1)
+Avg Price Weekday = CALCULATE([Avg Price], powerbi_flights_cleaned[is_weekend] = 0)
+Weekend Premium = [Avg Price Weekend] - [Avg Price Weekday]
+
+Price Index (100 = overall avg) =
+DIVIDE([Avg Price], CALCULATE([Avg Price], ALL(powerbi_flights_cleaned))) * 100
+
+Top Route Label =
+VAR T =
+    TOPN(
+        1,
+        SUMMARIZE(
+            powerbi_flights_cleaned,
+            powerbi_flights_cleaned[source],
+            powerbi_flights_cleaned[destination],
+            "Flights", COUNTROWS(powerbi_flights_cleaned)
+        ),
+        [Flights], DESC
+    )
+RETURN
+    MAXX(T, powerbi_flights_cleaned[source] & " -> " & powerbi_flights_cleaned[destination])

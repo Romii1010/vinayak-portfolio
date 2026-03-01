@@ -1,0 +1,43 @@
+﻿{
+  "name": "Flight Portfolio Theme",
+  "foreground": "#1F2937",
+  "background": "#F7F9FC",
+  "dataColors": ["#0F4C81", "#F4A300", "#2E7D32", "#D32F2F", "#6A1B9A", "#00838F", "#5D4037", "#455A64"],
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 13,
+            "color": { "solid": { "color": "#1F2937" } }
+          }
+        ],
+        "labels": [
+          {
+            "color": { "solid": { "color": "#1F2937" } },
+            "fontSize": 11
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F7F9FC" } },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}
