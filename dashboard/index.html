@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviation Analytics Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">Aviation Fare Intelligence Dashboard</div>
+      <div class="filters-inline">
+        <label>Year <select id="yearFilter"></select></label>
+        <label>Airline <select id="airlineFilter"></select></label>
+        <label>Stops <select id="stopsFilter"></select></label>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </header>
+
+    <section class="kpi-row">
+      <article class="kpi"><span>Total Airlines</span><strong id="kpiAirlines">-</strong></article>
+      <article class="kpi"><span>Total Flights</span><strong id="kpiFlights">-</strong></article>
+      <article class="kpi"><span>Avg Price</span><strong id="kpiAvg">-</strong></article>
+      <article class="kpi"><span>Total Revenue</span><strong id="kpiRevenue">-</strong></article>
+      <article class="kpi"><span>Max Price</span><strong id="kpiMax">-</strong></article>
+    </section>
+
+    <section class="grid">
+      <article class="panel panel-a">
+        <h3>Avg Airline Fare (Top 10)</h3>
+        <div class="canvas-wrap"><canvas id="airlineBar"></canvas></div>
+      </article>
+      <article class="panel panel-b">
+        <h3>Monthly Fare Trend</h3>
+        <div class="canvas-wrap"><canvas id="monthLine"></canvas></div>
+      </article>
+      <article class="panel panel-c">
+        <h3>Stops Distribution</h3>
+        <div class="canvas-wrap"><canvas id="stopsDonut"></canvas></div>
+      </article>
+      <article class="panel panel-d">
+        <h3>Weekday vs Avg Price</h3>
+        <div class="canvas-wrap"><canvas id="weekdayBar"></canvas></div>
+      </article>
+      <article class="panel panel-e">
+        <h3>Top Routes (Flights + Avg Price)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Route</th><th>Flights</th><th>Avg Price</th></tr></thead>
+            <tbody id="routeBody"></tbody>
+          </table>
+        </div>
+      </article>
+      <article class="panel panel-f">
+        <h3>Fare by Departure Time Block</h3>
+        <div class="canvas-wrap"><canvas id="timeBlockBar"></canvas></div>
+      </article>
+      <article class="panel panel-g">
+        <h3>Auto Insights</h3>
+        <ul id="insightsList" class="insights-list"></ul>
+      </article>
+    </section>
+
+    <footer id="subtitle">Flight Pricing Dashboard | Year: All | Airline: All | Stops: All</footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
