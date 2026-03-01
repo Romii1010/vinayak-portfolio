@@ -129,14 +129,20 @@ After running the notebook, these folders/files are generated:
 
 ## Screenshots
 
+## Screenshots
+
 ### 1) Project Overview
 ![Project Overview](screenshots/overview.png)
 
 ### 2) Model Results
-![Model Results](screenshots/model-results.png)
+![Model Results](screenshots/Model-results.png)
 
 ### 3) Power BI Dashboard
-![Power BI Dashboard](screenshots/powerbi-dashboard.png)
+![Power BI Dashboard](screenshots/PowerBI-Dashboard.png)
+
+### 4) HTML Dashboard
+![HTML Dashboard](screenshots/HTML-Dashboard.png)
+
 
 
 ## Repository Structure
