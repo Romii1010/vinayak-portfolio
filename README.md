@@ -48,3 +48,131 @@ This project is a **full-stack analytics pipeline** that takes raw flight pricin
 ---
 
 ## 🔄 Project Workflow
+
+```
+Raw Data (flights.csv)
+        │
+        ▼
+  Data Profiling & Quality Audit
+        │
+        ▼
+  Cleaning & Feature Engineering (15+ features)
+        │
+        ├──────────────────────┐
+        ▼                      ▼
+  EDA & KPI Analysis     ML Pipeline
+  (seaborn, matplotlib)  (RandomForest, GradientBoosting, ExtraTrees)
+        │                      │
+        │                GridSearchCV Tuning
+        │                      │
+        ▼                      ▼
+  Power BI Exports ◄──── Model Artifacts
+        │
+        ▼
+  Interactive Dashboard (Power BI + HTML)
+```
+
+---
+
+## ⚙️ Feature Engineering
+
+From the raw dataset, the following features were engineered:
+
+| Category | Features |
+|---|---|
+| Date | `journey_year`, `journey_month`, `journey_day`, `journey_weekday`, `is_weekend` |
+| Duration | `duration_minutes`, `duration_hours` |
+| Departure | `dep_hour`, `dep_minute`, `dep_time_block` |
+| Arrival | `arr_hour`, `arr_minute` |
+| Stops | `stops_num` |
+
+---
+
+## 📁 Repository Structure
+
+```
+vinayak-portfolio/
+│
+├── Flight.ipynb                          # Main analysis notebook
+├── flights.csv                           # Raw dataset
+│
+├── artifacts/                            # Generated after running notebook
+│   ├── flight_price_model.joblib
+│   └── model_features.joblib
+│
+├── powerbi_exports/                      # Power BI-ready CSVs
+│   ├── powerbi_flights_cleaned.csv
+│   ├── powerbi_kpi.csv
+│   ├── powerbi_airline_summary.csv
+│   ├── powerbi_route_summary.csv
+│   └── powerbi_monthly_summary.csv
+│
+├── dashboard/                            # Live HTML dashboard
+└── screenshots/                          # Project screenshots
+```
+
+---
+
+## 📈 Power BI Dashboard Pages
+
+The dashboard is structured across 4 pages:
+
+1. **Executive Overview** — KPI cards (Avg Price, Median Price, Max Price, Total Flights), monthly trend line, top airlines by fare
+2. **Route Intelligence** — Source → Destination matrix, busiest routes, slicers by airline/stops/month
+3. **Operational Patterns** — Fare by stops, fare by departure time block, weekday/month heatmap
+4. **Model Insights** — Baseline vs tuned metrics table, best CV score, predicted vs actual visual
+
+---
+
+## 🖥️ Screenshots
+
+### Power BI Dashboard
+![Power BI Dashboard](screenshots/PowerBI-Dashboard.png)
+
+### Model Results
+![Model Results](screenshots/Model-results.png)
+
+### HTML Dashboard
+![HTML Dashboard](screenshots/HTML-Dashboard.png)
+
+---
+
+## 🚀 How to Run
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/Romii1010/vinayak-portfolio.git
+cd vinayak-portfolio
+
+# 2. Install dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn joblib
+
+# 3. Run the notebook
+jupyter notebook Flight.ipynb
+
+# 4. Import powerbi_exports/*.csv into Power BI
+```
+
+---
+
+## 🔮 Future Improvements
+
+- [ ] Try `XGBoost`, `LightGBM`, `CatBoost` for accuracy uplift
+- [ ] Add outlier treatment and time-split cross-validation
+- [ ] Build a Streamlit prediction app for interactive fare estimation
+- [ ] Add SHAP values for model explainability
+
+---
+
+## 👤 About Me
+
+**Vinayak Kesarkar** — Data Analyst with 5+ years of experience in Power BI, SQL, Python, and VBA automation across banking, insurance, and aviation sectors.
+
+- 🔗 [LinkedIn](https://www.linkedin.com/in/vinayak-kesarkar)
+- 💻 [GitHub](https://github.com/Romii1010/vinayak-portfolio)
+- 📧 kesarkarvinayak73@gmail.com
+- 📍 Thane, Maharashtra, India
+
+---
+
+*⭐ If you found this project useful, feel free to star the repo!*
